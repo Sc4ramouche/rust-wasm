@@ -8,9 +8,9 @@
 
 <body>
     <script type="module">
-        WebAssembly.instantiateStreaming(fetch('./pkg/rust_wasm_bg.wasm')).then(({instance}) => {
-            const res = instance.exports.add_one(41)
-            document.write(res)
+        import init, {greet} from './pkg/rust_wasm.js'
+        init().then(() => {
+            greet("Vlad")
         })
     </script>
 </body>
